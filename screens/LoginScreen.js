@@ -2,9 +2,33 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, TextInput, TouchableOpacity, Touchable } from 'react-native';
 import { useState } from 'react';
 
+
+
 export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleLogin = async () => {
+    try {
+        const response = await fetch('http://192.168.56.1:3000/login', { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        if(response.ok) {
+            alert('Welcome Back, ' + data.name);
+            navigation.navigate('Home');
+        }
+        else {
+            alert(data.message);
+        }
+    }
+    catch(error) {
+        alert('Could not connect to the server');
+    }};
 
     return (
         <View style={styles.container}>
@@ -26,7 +50,6 @@ export default function LoginScreen({navigation}) {
             placeholder="Password"
             value={password}
             onChangeText={setPassword}
-            keyboardType="password"
             secureTextEntry
             />
 
@@ -34,7 +57,7 @@ export default function LoginScreen({navigation}) {
                 <Text style={styles.forgotPasswordText}>Forgot Password</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Log In</Text>
             </TouchableOpacity>
 
@@ -51,4 +74,6 @@ export default function LoginScreen({navigation}) {
 }
 
 import { loginStyles as styles } from '../styles/styles';
+
+
 

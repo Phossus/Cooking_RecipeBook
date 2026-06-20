@@ -8,6 +8,35 @@ export default function SignUpScreen({navigation}) {
     const [username, setUsername] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const handleSignup = async () => {
+        if(password != confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+
+        try {
+            const response = await fetch('http://192.168.56.1:3000/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, email, password }),
+            });
+
+            const data = await response.json();
+
+            if(response.ok) {
+                alert('Account succesfully created. Please Log in');
+                navigation.goBack();
+            }
+            else {
+                alert(data.message);
+            }
+        }
+        catch (error) {
+            alert('could not connect to server');
+        }
+    };
+
+
     return(
         <ScrollView contentContainerStyle={styles.container}>
             <Text style={styles.title}>Create Account</Text>
@@ -17,7 +46,7 @@ export default function SignUpScreen({navigation}) {
             <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} keyboardType="password" secureTextEntry/>
             <TextInput style={styles.input} placeholder="Confirm Password" value={confirmPassword} onChangeText={setConfirmPassword} keyboardType="password" secureTextEntry/>
             
-            <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.button}>
+            <TouchableOpacity onPress={handleSignup} style={styles.button}>
                 <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
             <View style={styles.loginContainer}>
