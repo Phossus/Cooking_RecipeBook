@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, TextInput, TouchableOpacity, Touchable } from 'react-native';
 import { useState } from 'react';
+import * as SecureStore from 'expo-secure-store';
+import authFetch from '../utils/authFetch';
 
 
 
@@ -20,7 +22,9 @@ export default function LoginScreen({navigation}) {
 
         if(response.ok) {
             alert('Welcome Back, ' + data.name);
-            navigation.navigate('Home');
+            await SecureStore.setItemAsync('token', data.token);
+            await SecureStore.setItemAsync('userId', String(data.userId));
+            navigation.navigate('Home', { userId: data.userId, userName: data.name });
         }
         else {
             alert(data.message);
