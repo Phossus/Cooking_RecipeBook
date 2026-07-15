@@ -12,6 +12,7 @@ export default function LoginScreen({navigation}) {
     const [password, setPassword] = useState('');
 
     const handleLogin = async () => {
+    console.log('Attempting login to:', `${BASE_URL}/login`);      
     try {
         const response = await fetch(`${BASE_URL}/login`, { 
             method: 'POST',
@@ -58,7 +59,7 @@ export default function LoginScreen({navigation}) {
             secureTextEntry
             />
 
-            <TouchableOpacity style={styles.forgotPassword}>
+            <TouchableOpacity style={styles.forgotPassword} onPress={() => navigation.navigate('ForgotPassword')}>
                 <Text style={styles.forgotPasswordText}>Forgot Password</Text>
             </TouchableOpacity>
 

@@ -11,6 +11,7 @@ import FavouritesScreen from './screens/FavouritesScreen';
 import FilterScreen from './screens/FilterScreen';
 import WhatCanICookScreen from './screens/WhatCanICookScreen';
 import RandomScreen from './screens/RandomScreen';
+import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ export default function App() {
         <Stack.Screen name="Filter" component={FilterScreen} options={{ headerShown: false }} />
         <Stack.Screen name="WhatCanICook" component={WhatCanICookScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Random" component={RandomScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

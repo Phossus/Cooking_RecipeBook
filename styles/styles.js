@@ -46,6 +46,7 @@ export const loginStyles = StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 14,
     fontSize: 14,
+    color: colors.primary,
   },
   forgotPassword: {
     alignSelf: 'flex-end',
@@ -938,5 +939,60 @@ export const randomStyles = StyleSheet.create({
         fontSize: 14,
         color: '#4a4f2f',
         lineHeight: 22,
+    },
+});
+
+export const forgotPasswordStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#f5ede4',
+        paddingHorizontal: 24,
+        paddingTop: 60,
+    },
+    backButton: {
+        marginBottom: 30,
+    },
+    backText: {
+        fontSize: 14,
+        color: '#a06b5b',
+        fontWeight: '600',
+    },
+    title: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#4a4f2f',
+        marginBottom: 8,
+    },
+    subtitle: {
+        fontSize: 14,
+        color: '#7d6e63',
+        marginBottom: 32,
+        lineHeight: 20,
+    },
+    input: {
+        width: '100%',
+        height: 48,
+        borderColor: '#c9b49a',
+        borderWidth: 1,
+        borderRadius: 8,
+        backgroundColor: '#ede5db',
+        paddingHorizontal: 16,
+        marginBottom: 14,
+        fontSize: 14,
+        color: '#4a4f2f',
+    },
+    button: {
+        width: '100%',
+        height: 48,
+        backgroundColor: '#7d9469',
+        borderRadius: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 6,
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: '600',
     },
 });
