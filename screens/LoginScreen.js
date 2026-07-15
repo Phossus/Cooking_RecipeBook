@@ -3,6 +3,7 @@ import { Text, View, Image, TextInput, TouchableOpacity, Touchable } from 'react
 import { useState } from 'react';
 import * as SecureStore from 'expo-secure-store';
 import authFetch from '../utils/authFetch';
+import BASE_URL from '../utils/config';
 
 
 
@@ -12,7 +13,7 @@ export default function LoginScreen({navigation}) {
 
     const handleLogin = async () => {
     try {
-        const response = await fetch('http://192.168.56.1:3000/login', { 
+        const response = await fetch(`${BASE_URL}/login`, { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
@@ -36,7 +37,7 @@ export default function LoginScreen({navigation}) {
 
     return (
         <View style={styles.container}>
-            <Image source={require('./../assets/icon.png')} style={styles.logo}/>
+            <Image source={require('./../assets/icon2.png')} style={styles.logo}/>
 
             <Text style ={styles.title}>Welcome Back</Text>
             <Text style ={styles.subtitle}>Login to continue</Text>

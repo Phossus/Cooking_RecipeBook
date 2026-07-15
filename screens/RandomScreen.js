@@ -38,7 +38,7 @@ export default function RandomScreen({ route, navigation }) {
             // check if already favourited
             if (userId) {
                 const favResponse = await authFetch(
-                    `http://192.168.56.1:3000/favourites/${userId}`
+                    `/favourites/${userId}`
                 );
                 const favData = await favResponse.json();
                 const alreadySaved = favData.some(
@@ -58,13 +58,13 @@ export default function RandomScreen({ route, navigation }) {
             return;
         }
         if (isFavourite) {
-            await authFetch('http://192.168.56.1:3000/favourites', {
+            await authFetch('/favourites', {
                 method: 'DELETE',
                 body: JSON.stringify({ userId, mealId: meal.idMeal }),
             });
             setIsFavourite(false);
         } else {
-            await authFetch('http://192.168.56.1:3000/favourites', {
+            await authFetch('/favourites', {
                 method: 'POST',
                 body: JSON.stringify({
                     userId,

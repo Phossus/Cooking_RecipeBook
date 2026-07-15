@@ -28,7 +28,7 @@ export default function FavouritesScreen({ route, navigation }) {
     const fetchFavourites = async () => {
         setLoading(true);
         try {
-            const response = await authFetch(`http://192.168.56.1:3000/favourites/${userId}`);
+            const response = await authFetch(`/favourites/${userId}`);
             const data = await response.json();
             setFavourites(data);
         } catch (error) {
@@ -39,7 +39,7 @@ export default function FavouritesScreen({ route, navigation }) {
 
     const removeFavourite = async (mealId) => {
         try {
-            await authFetch('http://192.168.56.1:3000/favourites', {
+            await authFetch('/favourites', {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userId, mealId }),

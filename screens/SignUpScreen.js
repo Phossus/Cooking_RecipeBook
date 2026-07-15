@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, TextInput, TouchableOpacity, Touchable, ScrollView  } from 'react-native';
 import { useState } from 'react';
 import authFetch from '../utils/authFetch';
+import BASE_URL from '../utils/config';
 
 export default function SignUpScreen({navigation}) {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ export default function SignUpScreen({navigation}) {
         }
 
         try {
-            const response = await fetch('http://192.168.56.1:3000/signup', {
+            const response = await fetch(`${BASE_URL}/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, email, password }),

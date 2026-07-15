@@ -30,7 +30,7 @@ export default function RecipeDetailScreen({ route, navigation }) {
         setMeal(data.meals[0]);
 
         if(userId) {
-          const favResponse = await authFetch (`http://192.168.56.1:3000/favourites/${userId}`);
+          const favResponse = await authFetch (`/favourites/${userId}`);
           const favData = await favResponse.json();
           const alreadySaved = favData.some(fav => fav.meal_id === mealId); //set wether alreadySaved is true or false based on if the meal matches
           setIsFavourite(alreadySaved);
@@ -49,13 +49,13 @@ export default function RecipeDetailScreen({ route, navigation }) {
       }
 
       if(isFavourite) { // remove from fav
-        await authFetch('http://192.168.56.1:3000/favourites', {
+        await authFetch('/favourites', {
           method: 'DELETE',
           body: JSON.stringify({ userId, mealId }),
         });
         setIsFavourite(false);
       } else { //add fav
-        await authFetch('http://192.168.56.1:3000/favourites', {
+        await authFetch('/favourites', {
           method: 'POST',
           body: JSON.stringify({ userId, mealId, mealName: meal.strMeal, mealThumb: meal.strMealThumb }),
         });
