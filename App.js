@@ -8,6 +8,9 @@ import RecipeDetailScreen from './screens/RecipeDetailScreen';
 import CategoriesScreen from './screens/CategoriesScreen';
 import CategoryMealsScreen from './screens/CategoryMealsScreen';
 import FavouritesScreen from './screens/FavouritesScreen';
+import FilterScreen from './screens/FilterScreen';
+import WhatCanICookScreen from './screens/WhatCanICookScreen';
+import RandomScreen from './screens/RandomScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +26,9 @@ export default function App() {
         <Stack.Screen name="Categories" component={CategoriesScreen} options={{ headerShown: false }} />
         <Stack.Screen name="CategoryMeals" component={CategoryMealsScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Favourites" component={FavouritesScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Filter" component={FilterScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="WhatCanICook" component={WhatCanICookScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Random" component={RandomScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

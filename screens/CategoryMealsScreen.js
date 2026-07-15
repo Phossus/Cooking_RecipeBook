@@ -8,6 +8,7 @@ import {
     ActivityIndicator,
 } from 'react-native';
 import { categoryMealsStyles as styles } from '../styles/styles';
+import * as SecureStore from 'expo-secure-store';
 
 export default function CategoryMealsScreen({ route, navigation }) {
     const { userId, category } = route.params;

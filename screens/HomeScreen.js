@@ -8,8 +8,8 @@ export default function HomeScreen({ route, navigation }) {
     { label: 'Search Recipes', emoji: '🔍', screen: 'Search', description: 'Find any meal by name' },
     { label: 'Browse Categories', emoji: '🍽️', screen: 'Categories', description: 'Explore meals by type' },
     { label: 'My Favourites', emoji: '❤️', screen: 'Favourites', description: 'Recipes you have saved' },
-    { label: 'Pantry Tracker', emoji: '🧺', screen: 'Pantry', description: 'Manage your ingredients' },
-    { label: 'What Can I Cook?', emoji: '🍳', screen: 'Suggestions', description: 'Based on your pantry' },
+    { label: 'Filter Recipes', emoji: '🎛️', screen: 'Filter', description: 'Filter by cuisine & ingredient' },
+    { label: 'What Can I Cook?', emoji: '🍳', screen: 'WhatCanICook', description: 'Search by ingredient' },
     { label: 'Random Recipe', emoji: '🎲', screen: 'Random', description: 'Surprise me!' },
   ];
 
@@ -37,7 +37,7 @@ export default function HomeScreen({ route, navigation }) {
       {/* Hero Card - Random Recipe shortcut */}
       <TouchableOpacity
         style={styles.heroCard}
-        onPress={() => navigation.navigate('Random')}
+        onPress={() => navigation.navigate('Random', { userId })}
       >
         <Text style={styles.heroEmoji}>🎲</Text>
         <Text style={styles.heroTitle}>Feeling Adventurous?</Text>

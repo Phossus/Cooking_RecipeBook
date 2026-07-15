@@ -9,6 +9,7 @@ import {
     ActivityIndicator,
 } from 'react-native';
 import { searchStyles as styles } from '../styles/styles';
+import * as SecureStore from 'expo-secure-store';
 
 export default function SearchScreen({route, navigation}) {
     const { userId } = route.params;

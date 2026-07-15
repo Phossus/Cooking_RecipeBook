@@ -39,7 +39,7 @@ export default function FavouritesScreen({ route, navigation }) {
 
     const removeFavourite = async (mealId) => {
         try {
-            await fetch('http://192.168.56.1:3000/favourites', {
+            await authFetch('http://192.168.56.1:3000/favourites', {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userId, mealId }),

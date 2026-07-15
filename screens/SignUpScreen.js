@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, TextInput, TouchableOpacity, Touchable, ScrollView  } from 'react-native';
 import { useState } from 'react';
+import authFetch from '../utils/authFetch';
 
 export default function SignUpScreen({navigation}) {
     const [email, setEmail] = useState('');

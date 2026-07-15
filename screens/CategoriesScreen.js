@@ -8,6 +8,7 @@ import {
     ActivityIndicator,
 } from 'react-native';
 import { categoriesStyles as styles } from '../styles/styles';
+import * as SecureStore from 'expo-secure-store';
 
 export default function CategoriesScreen({ route, navigation }) {
     const { userId } = route.params;
